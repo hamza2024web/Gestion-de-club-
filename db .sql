@@ -38,9 +38,9 @@ create table particpe (
     score int ,
     rang_final int ,
     membre_id int ,
-    jeux_id int ,
+    tournoi_id int ,
     FOREIGN key (membre_id) references membre(id),
-    FOREIGN key (jeux_id) references jeu(id)
+    FOREIGN key (tournoi_id) references tournoi(id)
 );
 
 -- Insertion de 20 membres
@@ -79,3 +79,46 @@ INSERT INTO jeux (id, titre, studio_developpement, date_sortie, genre, multijoue
 (8, 'Cyberpunk 2077', 'CD Projekt Red', '2020-12-10', 'Action RPG', FALSE),
 (9, 'Among Us', 'Innersloth', '2018-06-15', 'Party Game', TRUE),
 (10, 'Apex Legends', 'Respawn Entertainment', '2019-02-04', 'Battle Royale', TRUE);
+
+-- Insertion de 10 tournois
+INSERT INTO tournoi (id, nom_tournoi, date_tournoi, recompenses) VALUES
+(1, 'Tournoi FIFA 2024', '2024-01-15', '1000€'),
+(2, 'Championnat Fortnite', '2024-02-10', '5000€ et un PC gaming'),
+(3, 'League of Legends Cup', '2024-03-05', '3000€'),
+(4, 'Minecraft Build Battle', '2024-04-01', '1000€ et une console Xbox'),
+(5, 'Elden Ring Speedrun', '2024-04-20', '2000€'),
+(6, 'Tournoi Call of Duty', '2024-05-15', '5000€ et des accessoires gaming'),
+(7, 'Valorant Open', '2024-06-10', '3000€'),
+(8, 'Apex Legends Tournament', '2024-07-01', '2500€ et une PS5'),
+(9, 'PUBG World Cup', '2024-08-05', '10000€'),
+(10, 'Overwatch 2 Championship', '2024-09-15', '7000€ et une souris gaming');
+
+-- Insertion de 5 abonnements
+INSERT INTO abonnement (id, type_abonnement, date_debut, date_fin) VALUES
+(1, 'Mensuel', '2024-01-01', '2024-01-31'),
+(2, 'Trimestriel', '2024-02-01', '2024-04-30'),
+(3, 'Annuel', '2024-03-01', '2025-02-28'),
+(4, 'Hebdomadaire', '2024-04-01', '2024-04-07'),
+(5, 'Premium', '2024-05-01', '2024-10-31');
+
+-- Insertion de 10 emprunts
+INSERT INTO emprunter (date_emprunte, date_retour_prevue, date_retour_reelle, membre_id, jeux_id) VALUES
+('2024-01-01', '2024-01-10', '2024-01-09', 1, 3),
+('2024-01-05', '2024-01-15', '2024-01-14', 2, 5),
+('2024-01-10', '2024-01-20', NULL, 3, 7),
+('2024-01-12', '2024-01-22', '2024-01-21', 4, 2),
+('2024-01-15', '2024-01-25', NULL, 5, 1),
+('2024-01-18', '2024-01-28', '2024-01-27', 6, 4),
+('2024-01-20', '2024-01-30', NULL, 7, 6),
+('2024-01-22', '2024-02-01', '2024-01-31', 8, 8),
+('2024-01-25', '2024-02-05', NULL, 9, 9),
+('2024-01-28', '2024-02-07', '2024-02-06', 10, 10);
+
+
+-- Insertion de 5 participations
+INSERT INTO participe (score, rang_final, membre_id, jeux_id) VALUES
+(1500, 1, 1, 3),
+(1200, 2, 2, 5),
+(1800, 1, 3, 7),
+(900, 3, 4, 2),
+(1400, 2, 5, 1);
